@@ -1,0 +1,24 @@
+## The package attribute specifies a binstar package namespace to build the package to.
+## This can be specified here or on the command line
+package: flask
+
+## The platforms to build on.
+## platform defaults to linux-64
+# platform:
+#  - linux-64
+#  - linux-32
+## The engine are the inital conda packages you want to run with
+# engine:
+#  - python=2
+#  - python=3
+## The env param is an environment variable list
+# env:
+#  - MY_ENV=A CC=gcc
+#  - MY_ENV=B
+
+script:
+  - conda skeleton pypi flask
+  - conda build flask
+
+build_targets:
+  - conda
